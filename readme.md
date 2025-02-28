@@ -9,4 +9,4 @@ https://github.com/laiyuzhi/FAM-HRI/blob/main/Supplementary/instruction.pdf
 https://github.com/laiyuzhi/FAM-HRI/blob/main/Supplementary/SupplementaryMaterial.pdf
 ## Link to Arxiv:
 
-![image](https://github.com/user-attachments/assets/82d46233-b7d4-42cf-815c-a1a7f91a4d5b)
+[![image](https://github.com/user-attachments/assets/82d46233-b7d4-42cf-815c-a1a7f91a4d5b)](https://cscloud.cs.uni-tuebingen.de/index.php/s/6pry4bz89nLz84D)
