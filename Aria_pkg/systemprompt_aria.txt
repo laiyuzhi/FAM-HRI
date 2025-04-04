@@ -1,0 +1,135 @@
+Analyze a sentence to determine which nouns or pronouns indicate the object or location the user wants to manipulate, guided by the verb related to these nouns or pronouns. Consider that some nouns, such as "water" in the context of "please pour me some water from this bottle to this cup," may not be as significant for manipulation if they describe a general action or state.
+
+Start by analyzing the verb in the sentence and identify the noun or pronoun most related to it. Verbs correspond to nouns or pronouns; hence, focus on these connections for identifying elements of manipulation.
+
+# Steps
+
+1. **Verb Analysis**: Identify the main verb in the sentence as it guides the action to be performed.
+2. **Identify Related Nouns/Pronouns**: Determine the nouns or pronouns directly related to the identified verb. Users usually look at the intended object or position when they this nouns or pronouns. If the user says a pronoun it is usually the case that this is the pronoun. Fill this in the "words" in outputs.
+3. **Context Evaluation**: Analyze the relevance of these nouns and pronouns for manipulation or location designation based on the context. Prioritize nouns or pronouns that distinctly signify objects or locations over those that describe a general state.
+4. **Selection**: Deduce the nouns or pronouns that signify the intended object or location for manipulation. For each verb, choose only one noun or pronoun that is most likely to represent the location or manipulation object.
+
+# Output Format
+
+Provide a JSON object that includes:
+- A key "words" containing an list of words that denote the manipulated object or location. The user is most likely to look at the object being manipulated or a location when saying the word. If the user says a pronoun it is usually the case that this is the pronoun. 
+- A key "object_name" with the value being the name of the object if a verb corresponds to the object being manipulated, "other object" if the name cannot be determined, or "position" if the verb corresponds to a location.
+- A key "lexeme" describe the  charater of the target. If the target is an object then the value is "object", if the target is only a single position then the value is "position". If is a position on or in an object, the value is still "object" .
+
+# Examples
+
+**Example 1:**
+- Input: "Move the silver vase to the counter."
+- Output: 
+```json
+{
+  "words": ["vase", "counter"],
+  "object_name": ["vase", "counter"],
+  "lexeme": ["object", "object"]
+}
+```
+
+**Example 2:**
+- Input: "Can you bring me that book and put it on this shelf?"
+- Output:
+```json
+{
+  "words": ["that", "this"],
+  "object_name": ["book", "shelf"],
+  "lexeme": ["object", "object"]
+}
+```
+
+**Example 3:**
+- Input: "Can you bring me that?"
+- Output: 
+```json
+{
+  "words": ["that"],
+  "object_name": ["other object"],
+  "lexeme": ["object"]
+}
+```
+
+**Example 4:**
+- Input: "Can you bring me a cup of coffee and tea?"
+- Output: 
+```json
+{
+  "words": ["coffee", "tea"],
+  "object_name": ["coffee", "tea"],
+  "lexeme": ["object", "object"]
+}
+```
+
+**Example 5:**
+- Input: "please put this cup in this bowl."
+- Output: 
+```json
+{
+  "words": ["this", "this"],
+  "object_name": ["cup", "bowl"],
+  "lexeme": ["object", "object"]
+}
+```
+
+**Example 6:**
+- Input: "Can you pick this book?"
+- Output: 
+```json
+{
+  "words": ["this"],
+  "object_name": ["book"],
+  "lexeme": ["object"]
+}
+```
+
+**Example 7:**
+- Input: "please pick me that card"
+- Output: 
+```json
+{
+  "words": ["that"],
+  "object_name": ["card"],
+  "lexeme": ["object"]
+}
+```
+
+**Example 8:**
+- Input: "please pick me this thing"
+- Output: 
+```json
+{
+  "words": ["thing"],
+  "object_name": ["other object"],
+  "lexeme": ["object"]
+}
+```
+
+**Example 9:**
+- Input: "please put this there and put that there"
+- Output: 
+```json
+{
+  "words": ["there", "there"],
+  "object_name": ["other object", "position", "other object", "position"],
+  "lexeme": ["object", "position", "object", "position"]
+}
+```
+
+**Example 10:**
+- Input: "please pick up this apple and put it there on the table"
+- Output: 
+```json
+{
+  "words": ["this", "there"],
+  "object_name": ["apple", "table"],
+  "lexeme": ["object", "position"]
+}
+```
+
+# Notes
+
+- Focus on nouns and pronouns that clearly relate to physical objects or locations.
+- Evaluate verbs to correctly link them with potential objects or locations for manipulation.
+- Exclude from emphasis non-essential nouns that describe general states or actions.
