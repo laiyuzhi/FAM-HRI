@@ -8,7 +8,7 @@
   [![HD Video](https://img.shields.io/badge/HD%20Video-Download-orange)](https://cscloud.cs.uni-tuebingen.de/index.php/s/7R8xJc44Yyzx3sm)
   [![Instruction](https://img.shields.io/badge/Instruction-PDF-blue)](https://github.com/laiyuzhi/FAM-HRI/blob/main/Supplementary/instruction.pdf)
   [![Supplementary](https://img.shields.io/badge/Supplementary%20Material-Download-green)](https://cscloud.cs.uni-tuebingen.de/index.php/s/JRCWEr9PnjaTZYH)
-  [![arXiv](https://img.shields.io/badge/arXiv-TBD-lightgrey.svg)](https://arxiv.org/abs/2503.16492)
+  [![arXiv]([https://img.shields.io/badge/arXiv-TBD-lightgrey.svg](https://img.shields.io/badge/Instruction-PDF-blue))](https://arxiv.org/abs/2503.16492)
 
   <br><br>
 
